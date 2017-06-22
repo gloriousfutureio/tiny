@@ -124,10 +124,11 @@ static XTERM_KEY_SEQS : [(&'static [u8], Event); 20] =
     ];
 
 // Make sure not to use 27 (ESC) because it's used as a prefix in many combinations.
-static XTERM_SINGLE_BYTES : [(u8, Event); 13] =
+static XTERM_SINGLE_BYTES : [(u8, Event); 14] =
     [ (13,  Event::Key(Key::Enter)),
       (9,   Event::Key(Key::Tab)),
       (127, Event::Key(Key::Backspace)),
+      (8, Event::Key(Key::Backspace)), // HACK
       (1,   Event::Key(Key::Ctrl('a'))),
       (5,   Event::Key(Key::Ctrl('e'))),
       (23,  Event::Key(Key::Ctrl('w'))),
